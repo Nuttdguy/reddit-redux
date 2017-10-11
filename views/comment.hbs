@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-2">
+
+        {{#if post._id}}
+            <h3>| {{ post.title }} </h3>
+            <h5><i>New comment</i></h5>
+
+            <form action="/post/{{post._id}}/comment" method="POST">
+                <textarea class='form-control'
+                        name="content"
+                        placeholder="content"
+                        cols="30" rows="10"></textarea>
+
+                <div class="text-right">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        {{else}} 
+            <h5><i>Add comment</i></h5>
+            <p>{{comment.content}}</p>
+            <form action="/post/comment/{{comment._id}}" method="POST">
+                <textarea class='form-control'
+                        name="content"
+                        placeholder="content"
+                        cols="30" rows="10"></textarea>
+
+                <div class="text-right">
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+        {{/if}}
+
+    </div>
+</div>
+

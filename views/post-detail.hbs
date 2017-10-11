@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <h3>// {{post.title}} :: <a href="{{post.url}}" class="lead">{{post.url}}</a></h3>
+        <h4> Summary <br>  
+            <small><small>
+                <span>Author: </span>
+                <span>{{author.username}}</span> <br>
+                <span>{{post.createdAt}}</span>
+            </small></small>
+        </h4>
+        <p>{{post.summary}}</p>
+        <hr>
+        <h4>// Comments <span class="text-right">{{#isEmpty comment post}} {{/isEmpty}}</span></h4>
+        <div>
+                <div>
+                {{#each comment}}
+                    <div class="text-right">
+                        <!-- change route to direct to add comment -->
+                        <a href="/post/comment/{{this._id}}"><small><i>:: add comment </i></small></a>
+                    </div>
+                    <div class="text-left">
+                        <!-- add author, construct object for this view-->
+                        <small>author: {{this.author}}</small>
+                    </div>
+                <p>{{@index }}: {{this.content}}</p>
+                {{/each}}
+                </div>
+        </div>
+
+    </div>
+</div>
